@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
+
 User = get_user_model()
 
 class Group(models.Model):
@@ -10,6 +11,7 @@ class Group(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
 
 class Post(models.Model):
     text = models.TextField()
