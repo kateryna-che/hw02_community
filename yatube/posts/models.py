@@ -28,3 +28,5 @@ class Post(models.Model):
         null=True,
         on_delete=models.SET_NULL
     )
+    class Meta:
+        ordering = ['-pub_date']
