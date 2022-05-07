@@ -1,11 +1,11 @@
 from django.shortcuts import get_object_or_404, render
 
 from .models import Group, Post
+from django.conf import settings
 
 
 def index(request):
-    POSTS_LIMIT = 10
-    posts = Post.objects.all()[:POSTS_LIMIT]
+    posts = Post.objects.all()[:settings.POSTS_LIMIT]
     context = {
         'posts': posts,
     }
@@ -13,9 +13,8 @@ def index(request):
 
 
 def group_posts(request, slug):
-    POSTS_LIMIT = 10
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).all()[:POSTS_LIMIT]
+    posts = Post.objects.filter(group=group)[:settings.POSTS_LIMIT]
     context = {
         'group': group,
         'posts': posts,

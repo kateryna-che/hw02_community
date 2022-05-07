@@ -2,11 +2,6 @@
 {% block content %}
 <h1>Записи сообщества {{ group }}</h1>
 {% for post in posts %}
-<article>
   {% include 'posts/card_post.html' %}
-  {% if not forloop.last %}
-  <hr>
-  {% endif %}
-</article>
 {% endfor %}
 {% endblock %}
